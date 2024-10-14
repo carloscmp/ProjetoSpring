@@ -1,5 +1,10 @@
 package br.com.markDev.projeto.entity;
 
+import java.util.Objects;
+
+import org.springframework.beans.BeanUtils;
+
+import br.com.markDev.projeto.dto.UsuarioDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,16 +19,33 @@ public class UsuarioEntity {
 	@Id /*define chave primaria*/
 	@GeneratedValue(strategy = GenerationType.IDENTITY)/*chave para auto increment*/
 	private Long id;
+	
 	@Column(nullable = false)/*anotação para dizer que o campo é de preenchimento obrigatório*/
 	private String nome;
+	
 	@Column(nullable = false, unique = true/*define que não poderá haver dois logins iguais*/)
 	private String login;
+	
 	@Column(nullable = false)
 	private String senha;
+	
 	@Column(nullable = false)
 	private String email;
+	
 	public Long getId() {
 		return id;
+	}
+	
+	public UsuarioEntity(UsuarioDTO usuario) {
+		
+		BeanUtils.copyProperties(usuario, this);
+		
+	}
+	
+	public UsuarioEntity() {
+		
+		
+		
 	}
 	public void setId(Long id) {
 		this.id = id;
@@ -51,6 +73,23 @@ public class UsuarioEntity {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UsuarioEntity other = (UsuarioEntity) obj;
+		return Objects.equals(id, other.id);
 	}
 	
 	
