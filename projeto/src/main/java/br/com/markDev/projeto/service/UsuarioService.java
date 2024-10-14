@@ -38,7 +38,7 @@ public class UsuarioService {
 		usuarioRepository.delete(usuario);
 	}
 
-	/*Buscar pelo Id*/
+	/* Buscar pelo Id */
 	public UsuarioDTO buscarPorId(Long id) {
 		return new UsuarioDTO(usuarioRepository.findById(id).get());
 	}
