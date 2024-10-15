@@ -41,6 +41,7 @@ public class UsuarioController {
 	public ResponseEntity<Void> excluir (@PathVariable("id") Long id){
 		usuarioService.excluir(id);
 		return ResponseEntity.ok().build();
+		
 	}
 
 }
