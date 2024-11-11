@@ -23,7 +23,7 @@ public class UsuarioEntity {
 	@Column(nullable = false)/*anotação para dizer que o campo é de preenchimento obrigatório*/
 	private String nome;
 	
-	@Column(nullable = false, unique = true/*define que não poderá haver dois logins iguais*/)
+	@Column(nullable = false, unique = true)/*define que não poderá haver dois logins iguais*/
 	private String login;
 	
 	@Column(nullable = false)
@@ -42,9 +42,7 @@ public class UsuarioEntity {
 		
 	}
 	
-	public UsuarioEntity() {
-		
-		
+	public UsuarioEntity() {		
 		
 	}
 	public void setId(Long id) {
