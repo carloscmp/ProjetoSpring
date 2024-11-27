@@ -1,5 +1,8 @@
 package br.com.markDev.projeto.entity;
 
+import org.springframework.beans.BeanUtils;
+
+import br.com.markDev.projeto.dto.PerfilDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,5 +28,11 @@ public class PerfilEntity {
 
 	@Column(nullable = false)
 	private String descricao;
+
+	public PerfilEntity(PerfilDTO perfil) {
+
+		BeanUtils.copyProperties(perfil, this);
+
+	}
 
 }
