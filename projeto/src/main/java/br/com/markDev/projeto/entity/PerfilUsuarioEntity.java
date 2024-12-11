@@ -3,7 +3,6 @@ package br.com.markDev.projeto.entity;
 import org.springframework.beans.BeanUtils;
 
 import br.com.markDev.projeto.dto.PerfilUsuarioDTO;
-import br.com.markDev.projeto.dto.UsuarioDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,9 +25,11 @@ public class PerfilUsuarioEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@ManyToOne
 	@JoinColumn(name="ID_USUARIO")
 	private UsuarioEntity usuario;
+	
 	@ManyToOne
 	@JoinColumn(name="ID_PERFIL")
 	private PerfilEntity perfil;

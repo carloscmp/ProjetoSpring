@@ -17,11 +17,13 @@ public class PerfilUsuarioDTO {
 	private PerfilDTO perfil;
 
 	public PerfilUsuarioDTO(PerfilUsuarioEntity perfilUsuario) {
-			
-			BeanUtils.copyProperties( perfilUsuario, this);
-			if(perfilUsuario != null && perfilUsuario.getUsuario() != null) {
-				this.usuario = new UsuarioDTO(perfilUsuario.getUsuario());
-			}
+		BeanUtils.copyProperties(perfilUsuario, this);
+		if(perfilUsuario != null && perfilUsuario.getUsuario() != null) {
+			this.usuario = new UsuarioDTO(perfilUsuario.getUsuario());
 		}
-
+		if(perfilUsuario != null && perfilUsuario.getPerfil() != null) {
+			this.perfil = new PerfilDTO(perfilUsuario.getPerfil());
+		}		
+	}
+	
 }

@@ -15,20 +15,24 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "MK_RECURSO")
 public class RecursoEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	@Column(nullable = false)
 	private String nome;
+	
 	@Column(nullable = false)
 	private String chave;
 	
-	public RecursoEntity() {}
+	public RecursoEntity() {
+	
+	}
 
 	public RecursoEntity(RecursoDTO recurso) {
 		BeanUtils.copyProperties(recurso, this);
-	}	
-	
+	}
 	public Long getId() {
 		return id;
 	}
@@ -68,6 +72,5 @@ public class RecursoEntity {
 			return false;
 		RecursoEntity other = (RecursoEntity) obj;
 		return Objects.equals(id, other.id);
-	}
-
+	}	
 }
