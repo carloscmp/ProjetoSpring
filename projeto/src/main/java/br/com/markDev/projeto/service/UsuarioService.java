@@ -26,7 +26,7 @@ public class UsuarioService {
 		usuarioRepository.save(usuarioEntity);
 	}
 
-	/* Delete */
+	/* Update */
 	public UsuarioDTO alterar(UsuarioDTO usuario) {
 		UsuarioEntity usuarioEntity = new UsuarioEntity(usuario);
 		return new UsuarioDTO(usuarioRepository.save(usuarioEntity));

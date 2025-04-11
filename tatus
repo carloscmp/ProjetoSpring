@@ -1,0 +1,65 @@
+[33mcommit cb4a033bf082a102b60871e2de6d0637fb8cd74f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: carloscmp <99369400+carloscmp@users.noreply.github.com>
+Date:   Mon Dec 16 12:21:00 2024 -0300
+
+    Inicio de desenvolvimento com jwt security
+
+[33mcommit 29fe2e01c9afdf9de949eda2e7c09bf795566211[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: carloscmp <99369400+carloscmp@users.noreply.github.com>
+Date:   Wed Dec 11 13:22:52 2024 -0300
+
+    Primeira parte concluida - erros resolvidos
+
+[33mcommit 80c7ef1b0d9cb4be8df65cf100b61b32eb2355c4[m
+Author: carloscmp <99369400+carloscmp@users.noreply.github.com>
+Date:   Wed Nov 27 20:03:32 2024 -0300
+
+    Craição dda tabela Perfil_usuario feita com relacionamentos
+
+[33mcommit e06e577eb8aae4543b50c6fcd17346245457d369[m
+Author: carloscmp <99369400+carloscmp@users.noreply.github.com>
+Date:   Mon Nov 11 12:02:34 2024 -0300
+
+    Lombok adicionado e criado o perfilEntity
+
+[33mcommit 9d39b0d1ac6e6ec692b801d9d6c67ec97c4d668c[m
+Author: carloscmp <99369400+carloscmp@users.noreply.github.com>
+Date:   Mon Nov 11 12:01:49 2024 -0300
+
+    Lombok adicionado e criaão da classe "PerfilEntity"
+
+[33mcommit c505e5e4df20d2fff57aeedb680f1005211c6f8a[m
+Author: carloscmp <99369400+carloscmp@users.noreply.github.com>
+Date:   Fri Oct 18 14:19:59 2024 -0300
+
+    Feita a ligação do backen com frontend
+
+[33mcommit d38729d5daf4883e20b8a4a17ed6cf0e1adbb9b7[m[33m ([m[1;32mmaster[m[33m, [m[1;32mBackEnd[m[33m)[m
+Author: carloscmp <99369400+carloscmp@users.noreply.github.com>
+Date:   Tue Oct 15 09:10:11 2024 -0300
+
+    pequena alteração
+
+[33mcommit 525bb94fffe2a9ef9953bfcd3a62ee25f8d8b364[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: carloscmp <99369400+carloscmp@users.noreply.github.com>
+Date:   Mon Oct 14 14:19:10 2024 -0300
+
+    Desenvolvimento da camada controller
+
+[33mcommit 9cad58c59c7cfe457eda2036766fa8d679280432[m
+Author: carloscmp <99369400+carloscmp@users.noreply.github.com>
+Date:   Mon Oct 14 11:44:05 2024 -0300
+
+    CRUD implementado
+
+[33mcommit 7681501b9a84aefcb63e7fa1d881a3d88fd5b426[m
+Author: carloscmp <99369400+carloscmp@users.noreply.github.com>
+Date:   Fri Oct 11 11:15:29 2024 -0300
+
+    Criação da classe UsuarioDTO
+
+[33mcommit ca0f4b2e7a225e3f844bf09e5873e773e2cad7fe[m
+Author: carloscmp <99369400+carloscmp@users.noreply.github.com>
+Date:   Fri Oct 11 11:07:26 2024 -0300
+
+    Commit inicial do projeto

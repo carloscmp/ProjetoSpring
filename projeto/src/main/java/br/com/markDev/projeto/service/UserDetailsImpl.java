@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class UserDetailImpl implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
 
 	private Long id;
 
@@ -17,8 +17,8 @@ public class UserDetailImpl implements UserDetails {
 
 	private String password;
 
-	private Collection <? extends GrantedAuthority> authorities;
-	
+	private Collection<? extends GrantedAuthority> authorities;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
