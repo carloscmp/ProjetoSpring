@@ -3,6 +3,7 @@ package br.com.markDev.projeto.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.markDev.projeto.dto.UsuarioDTO;
@@ -13,6 +14,9 @@ import br.com.markDev.projeto.repository.UsuarioRepository;
 public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	/* Read */
 	public List<UsuarioDTO> listarTodos() {
@@ -23,12 +27,14 @@ public class UsuarioService {
 	/* Create */
 	public void inserir(UsuarioDTO usuario) {
 		UsuarioEntity usuarioEntity = new UsuarioEntity(usuario);
+		usuarioEntity.setSenha(passwordEncoder.encode(usuario.getSenha()));
 		usuarioRepository.save(usuarioEntity);
 	}
 
 	/* Update */
 	public UsuarioDTO alterar(UsuarioDTO usuario) {
 		UsuarioEntity usuarioEntity = new UsuarioEntity(usuario);
+		usuarioEntity.setSenha(passwordEncoder.encode(usuario.getSenha()));
 		return new UsuarioDTO(usuarioRepository.save(usuarioEntity));
 	}
 

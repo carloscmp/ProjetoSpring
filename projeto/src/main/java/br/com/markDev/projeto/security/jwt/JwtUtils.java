@@ -18,10 +18,10 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
 @Component
-public class jwtUtils {
+public class JwtUtils {
 
 	@Value("${projeto.jwtSecret}")
-	private String jwtSercret;
+	private String jwtSecret;
 
 	@Value("${projeto.jwtExpirationMs}")
 	private int jwtExpirationMs;
@@ -29,26 +29,32 @@ public class jwtUtils {
 	public String generateTokenFromUserDetailsImpl(UserDetailsImpl userDetail) {
 		return Jwts.builder().setSubject(userDetail.getUsername()).setIssuedAt(new Date())
 				.setExpiration(new Date(new Date().getTime() + jwtExpirationMs))
-				.signWith(getSingninKey(), SignatureAlgorithm.ES512).compact();
+				.signWith(getSigninKey(), SignatureAlgorithm.HS512).compact();
 	}
 
-	public Key getSingninKey() {
-		SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSercret));
+	public Key getSigninKey() {
+		SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
 		return key;
 	}
 
-	public boolean validateJwtTokens(String AuthToken) {
+	public String getUsernameToken(String token) {
+		return Jwts.parser().setSigningKey(getSigninKey()).build().parseClaimsJws(token).getBody().getSubject();
+	}
+
+	public boolean validateJwtToken(String authToken) {
 		try {
-			Jwts.parser().setSigningKey(getSingninKey()).build().parseClaimsJws(AuthToken);
+			Jwts.parser().setSigningKey(getSigninKey()).build().parseClaimsJws(authToken);
+			return true;
 		} catch (MalformedJwtException e) {
-			System.out.println("Token Inválido" + e.getMessage());
+			System.out.println("Token inválido " + e.getMessage());
 		} catch (ExpiredJwtException e) {
-			System.out.println("Token Expirado" + e.getMessage());
+			System.out.println("Token expirado " + e.getMessage());
 		} catch (UnsupportedJwtException e) {
-			System.out.println("Token Não Suportado" + e.getMessage());
+			System.out.println("Token não suportado " + e.getMessage());
 		} catch (IllegalArgumentException e) {
-			System.out.println("Token Argumento Inválido" + e.getMessage());
+			System.out.println("Token Argumento inválido " + e.getMessage());
 		}
+
 		return false;
 	}
 }
